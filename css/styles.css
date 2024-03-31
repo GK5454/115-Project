@@ -151,7 +151,15 @@ footer {
     background-attachment: fixed;
     background-color: black;
 }
-
+@media (max-width: 768px) {
+    .body-background-witcher {
+    background-image: url('../Images/W3_Back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: black;
+}
 .body-background-oblivion {
     background-image: url('../Images/Oblivion.jpg');
     background-size: contain;
