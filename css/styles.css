@@ -135,7 +135,7 @@ footer {
 
 /* Backgrounds */
 .body-background-default {
-    background-image: url('images/home.jpg');
+    background-image: url('../images/home.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
