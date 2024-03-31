@@ -5,3 +5,5 @@ After I implemeted that, I realized having cool backgrounds with a text section 
 so I modified the code to allow a second click on an already active favourite hide the text section so the background could be fully viewed.
 
 Also made some last minute updates to make the mobile version look great.
+
+Passed all verification & tests with no warnings and no errors
