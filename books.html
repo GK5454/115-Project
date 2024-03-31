@@ -1,0 +1,128 @@
+<!--Gabriel Knight Mini-Project-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Books</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="body-background-default">
+    <header>
+        <h1>My Favorite Books</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="tv.html">Television</a></li>
+                <li><a href="games.html">Games</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="mediaSelection">
+        <button class="media-btn" data-media="drizzt">The Legend of Drizzt Series</button>
+        <button class="media-btn" data-media="song">A Song of Ice and Fire</button>
+        <button class="media-btn" data-media="vamp">The Vampire Chronicles</button>
+    </div>
+    
+    <section id="drizzt">
+        <h2>The Legend of Drizzt Series</h2>
+        
+        <p>Based in D&D's The Forgotten Realms, this fantasy book series by author R.A. Salvatore started with its first release in 1988, and follows the story of a Dark Elf and his companions that to this date, spans over 40 novels.</p>
+    
+        <h3>Why It’s My Favorite</h3>
+        <p>Having grown attached to the characters in this series as a young adult, I've been lucky to have had a favorite book series that's grown with me for 36 years.</p>
+    
+        <h3>Gallery</h3>
+        <div class="screenshot-gallery">
+            <a href="Images/drizzt-1.jpg" target="_blank">
+                <img src="Images/drizzt-1.jpg" alt="Drizzt Screenshot 1">
+            </a>
+            <a href="Images/drizzt-2.jpg" target="_blank">
+                <img src="Images/drizzt-2.jpg" alt="Drizzt Screenshot 2">
+            </a>
+        </div>
+    </section>
+
+    <section id="song">
+        <h2>A Song of Ice and Fire</h2>
+        
+        <p>Written by George R.R. Martin, A Song of Ice and Fire is a fantasy series with the first of (currently) six books published in 1996. It was made into a television show titled 'Game of Thrones' that would become one of the most watched series of all time.</p>
+    
+        <h3>Why It’s My Favorite</h3>
+        <p>Although I didn't start reading this series until after watching the first season of GOT, Once I picked it up, I had a hard time putting it down. Since then I've read through the first five books three additional times each while simutaneously enjoying the TV series.</p>
+    
+        <h3>Gallery</h3>
+        <div class="screenshot-gallery">
+            <a href="Images/song-1.jpg" target="_blank">
+                <img src="Images/song-1.jpg" alt="Song Screenshot 1">
+            </a>
+            <a href="Images/song-2.jpg" target="_blank">
+                <img src="Images/song-2.jpg" alt="Song Screenshot 2">
+            </a>
+        </div>
+    </section>
+    
+    <section id="vamp">
+        <h2>The Vampire Chronicles</h2>
+        
+        <p>By Author Anne Rice, a gothic vampire series that published its first book 'Interview with the Vampire' in 1976 and has since spawned a dozen more novels, two feature films, and recently a television series.</p>
+    
+        <h3>Why It’s My Favorite</h3>
+        <p>Being the first novels I would read as a youth outside of school, the Vampire Lestat has been a companion nearly my entire life. And although I may have my own personal criticisms with the movies, I continue to enjoy the new content inspired by the late Anne Rice.</p>
+    
+        <h3>Gallery</h3>
+        <div class="screenshot-gallery">
+            <a href="Images/vamp-1.jpg" target="_blank">
+                <img src="Images/vamp-1.jpg" alt="Vampire Screenshot 1">
+            </a>
+            <a href="Images/vamp-2.jpg" target="_blank">
+                <img src="Images/vamp-2.jpg" alt="Vampire Screenshot 2">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright ©2024 Knightvision</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentVisibleSection = null; // Keep track of the current visible section
+        
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.style.display = 'none'); // Hide all sections at the page load
+        
+            document.querySelectorAll('.media-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const media = this.getAttribute('data-media');
+        
+                    if (currentVisibleSection === media) {
+                        // Hide the currently displayed section
+                        document.getElementById(media).style.display = 'none';
+                        currentVisibleSection = null; // No section is currently visible
+                    } else {
+                        // Hide all sections first
+                        sections.forEach(section => section.style.display = 'none');
+        
+                        // Show the selected section
+                        const selectedSection = document.getElementById(media);
+                        if (selectedSection) {
+                            selectedSection.style.display = 'block'; // Show the selected section only
+                            currentVisibleSection = media; // Update the tracker to the new media
+        
+                            // Apply the new background for selected section
+                            document.body.className = ''; // Reset any previous background class
+                            document.body.classList.add('body-background-' + media);
+                        }
+                    }
+                });
+            });
+        });
+        </script>
+        
+</body>
+</html>

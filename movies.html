@@ -1,0 +1,128 @@
+<!--Gabriel Knight Mini-Project-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Movies</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="body-background-default">
+    <header>
+        <h1>My Favorite Movies</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="tv.html">Television</a></li>
+                <li><a href="games.html">Games</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="mediaSelection">
+        <button class="media-btn" data-media="highlander">Highlander</button>
+        <button class="media-btn" data-media="braveheart">Braveheart</button>
+        <button class="media-btn" data-media="gladiator">Gladiator</button>
+    </div>
+    
+    <section id="highlander">
+        <h2>Highlander</h2>
+        
+        <p>An epic tale of love, loss & immortality told over 400 years.</p>
+    
+        <h3>Why It’s My Favorite</h3>
+        <p>Released in 1986, it's still my all-time favourite movie. Also the best soundtrack by Queen.</p>
+    
+        <h3>Gallery</h3>
+        <div class="screenshot-gallery">
+            <a href="Images/highlander-1.jpg" target="_blank">
+                <img src="Images/highlander-1.jpg" alt="Highlander Screenshot 1">
+            </a>
+            <a href="Images/highlander-2.jpg" target="_blank">
+                <img src="Images/highlander-2.jpg" alt="Highlander Screenshot 2">
+            </a>
+        </div>
+    </section>
+
+    <section id="braveheart">
+        <h2>Braveheart</h2>
+        
+        <p>A story about the Scottish fight for freedom from English rule.</p>
+    
+        <h3>Why It’s My Favorite</h3>
+        <p>Another great epic storytelling with an amazing soundtrack & cast. Speaks to my celtic roots.</p>
+    
+        <h3>Gallery</h3>
+        <div class="screenshot-gallery">
+            <a href="Images/braveheart-1.jpg" target="_blank">
+                <img src="Images/braveheart-1.jpg" alt="Braveheart Screenshot 1">
+            </a>
+            <a href="Images/braveheart-2.jpg" target="_blank">
+                <img src="Images/braveheart-2.jpg" alt="Braveheart Screenshot 2">
+            </a>
+        </div>
+    </section>
+    
+    <section id="gladiator">
+        <h2>Gladiator</h2>
+        
+        <p>Epic story of a Roman general that became the most influential man in rome, after becoming a slave.</p>
+    
+        <h3>Why It’s My Favorite</h3>
+        <p>Great cast, brilliant performance by Russel Crowe, beautiful music & epic battle scenes.</p>
+    
+        <h3>Gallery</h3>
+        <div class="screenshot-gallery">
+            <a href="Images/gladiator-1.jpg" target="_blank">
+                <img src="Images/gladiator-1.jpg" alt="Gladiator Screenshot 1">
+            </a>
+            <a href="Images/gladiator-2.jpg" target="_blank">
+                <img src="Images/gladiator-2.jpg" alt="Gladiator Screenshot 2">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright ©2024 Knightvision</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentVisibleSection = null; // Keep track of the current visible section
+        
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.style.display = 'none'); // Hide all sections at the page load
+        
+            document.querySelectorAll('.media-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const media = this.getAttribute('data-media');
+        
+                    if (currentVisibleSection === media) {
+                        // Hide the currently displayed section
+                        document.getElementById(media).style.display = 'none';
+                        currentVisibleSection = null; // No section is currently visible
+                    } else {
+                        // Hide all sections first
+                        sections.forEach(section => section.style.display = 'none');
+        
+                        // Show the selected section
+                        const selectedSection = document.getElementById(media);
+                        if (selectedSection) {
+                            selectedSection.style.display = 'block'; // Show the selected section only
+                            currentVisibleSection = media; // Update the tracker to the new media
+        
+                            // Apply the new background for selected section
+                            document.body.className = ''; // Reset any previous background class
+                            document.body.classList.add('body-background-' + media);
+                        }
+                    }
+                });
+            });
+        });
+        </script>
+        
+</body>
+</html>

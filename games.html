@@ -1,0 +1,132 @@
+<!--Gabriel Knight Mini-Project-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Video Games</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="body-background-default">
+    <header>
+        <h1>My Favorite Video Games</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="tv.html">Television</a></li>
+                <li><a href="movies.html">Movies</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="mediaSelection">
+        <button class="media-btn" data-media="witcher">The Witcher 3: Wild Hunt</button>
+        <button class="media-btn" data-media="oblivion">Elder Scrolls: Oblivion</button>
+        <button class="media-btn" data-media="eq">EverQuest</button>
+    </div>
+    
+    <section id="witcher">
+        <h2>The Witcher 3: Wild Hunt</h2>
+        
+        <p>An amazing open world RPG from CD Projekt Red, based on a fantasy book series by Polish Author Andrzej Sapkowski.</p>
+    
+        <h3>Why It’s My Favorite</h3>
+        <p>This game is really something special. Immersive, excellent writing & character development. Made me want to read the book series, which I'm nearly done. Pretty decent Netflix series too.</p>
+    
+        <h3>Gallery</h3>
+        <div class="screenshot-gallery">
+            <a href="Images/witcher3-1.jpg" target="_blank">
+                <img src="Images/witcher3-1.jpg" alt="Witcher 3 Gameplay Screenshot 1">
+            </a>
+            <a href="Images/witcher3-2.jpg" target="_blank">
+                <img src="Images/witcher3-2.jpg" alt="Witcher 3 Gameplay Screenshot 2">
+            </a>
+        </div>
+        <p>For more information, visit the <a href="https://thewitcher.com/en/witcher3" target="_blank" rel="noopener noreferrer">official Witcher 3 website</a>.</p>
+    </section>
+
+    <section id="oblivion">
+        <h2>The Elder Scrolls: Oblivion</h2>
+        
+        <p>The fourth game in the Elder Scrolls series from Bethesda, Oblivion was the first game you could see something off in the distance and actually walk there. This was a big deal!</p>
+    
+        <h3>Why It’s My Favorite</h3>
+        <p>Oblivion has a special place in my heart even amongst the entire series, if for no other reason than such fond memories playing it with good friends.</p>
+    
+        <h3>Gallery</h3>
+        <div class="screenshot-gallery">
+            <a href="Images/oblivion-1.jpg" target="_blank">
+                <img src="Images/oblivion-1.jpg" alt="Oblivion Gameplay Screenshot 1">
+            </a>
+            <a href="Images/oblivion-2.jpg" target="_blank">
+                <img src="Images/oblivion-2.jpg" alt="Oblivion Gameplay Screenshot 2">
+            </a>
+        </div>
+
+        <p>For more information, visit the <a href="https://elderscrolls.bethesda.net/en/oblivion" target="_blank" rel="noopener noreferrer">official Oblivion website</a>.</p>
+    </section>
+    
+    <section id="eq">
+        <h2>Everquest</h2>
+        
+        <p>Everquest, the Grandfather of all modern 3D MMORPGs</p>
+    
+        <h3>Why It’s My Favorite</h3>
+        <p>Starting with the beta in 1999, this game represents thousands of entertaining hours with old friends and new ones from all over the world. And I think it still holds up 25 years later.</p>
+    
+        <h3>Gallery</h3>
+        <div class="screenshot-gallery">
+            <a href="Images/eq-1.jpg" target="_blank">
+                <img src="Images/eq-1.jpg" alt="Everquest Gameplay Screenshot 1">
+            </a>
+            <a href="Images/eq-2.jpg" target="_blank">
+                <img src="Images/eq-2.jpg" alt="Everquest Gameplay Screenshot 2">
+            </a>
+        </div>
+        <p>For more information, visit the <a href="https://www.everquest.com/home" target="_blank" rel="noopener noreferrer">official Everquest website</a>.</p>
+    </section>
+
+    <footer>
+        <p>Copyright ©2024 Knightvision</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentVisibleSection = null; // Keep track of the current visible section
+        
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.style.display = 'none'); // Hide all sections at the page load
+        
+            document.querySelectorAll('.media-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const media = this.getAttribute('data-media');
+        
+                    if (currentVisibleSection === media) {
+                        // Hide the currently displayed section
+                        document.getElementById(media).style.display = 'none';
+                        currentVisibleSection = null; // No section is currently visible
+                    } else {
+                        // Hide all sections first
+                        sections.forEach(section => section.style.display = 'none');
+        
+                        // Show the selected section
+                        const selectedSection = document.getElementById(media);
+                        if (selectedSection) {
+                            selectedSection.style.display = 'block'; // Show the selected section only
+                            currentVisibleSection = media; // Update the tracker to the new media
+        
+                            // Apply the new background for selected section
+                            document.body.className = ''; // Reset any previous background class
+                            document.body.classList.add('body-background-' + media);
+                        }
+                    }
+                });
+            });
+        });
+        </script>
+        
+</body>
+</html>

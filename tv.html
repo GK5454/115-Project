@@ -1,0 +1,128 @@
+<!--Gabriel Knight Mini-Project-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Television Shows</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="body-background-default">
+    <header>
+        <h1>My Favorite Television Shows</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="games.html">Games</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="mediaSelection">
+        <button class="media-btn" data-media="firefly">Firefly</button>
+        <button class="media-btn" data-media="got">Game of Thrones</button>
+        <button class="media-btn" data-media="lie">Lie to Me</button>
+    </div>
+    
+    <section id="firefly">
+        <h2>Firefly</h2>
+        
+        <p>Set in the year 2517, Firefly follows the crew of the Serenity, a "Firefly-class" spaceship. The series explores the lives of the crew members and their adventures in the aftermath of a civil war in the galaxy.</p>
+    
+        <h3>Why It’s My Favorite</h3>
+        <p>Although it only aired for a single season, this great 'space western' sci-fi tv show gained enough of a following to get a feature film, and I love them both.</p>
+    
+        <h3>Gallery</h3>
+        <div class="screenshot-gallery">
+            <a href="Images/firefly-1.jpg" target="_blank">
+                <img src="Images/firefly-1.jpg" alt="Firefly Screenshot 1">
+            </a>
+            <a href="Images/firefly-2.jpg" target="_blank">
+                <img src="Images/firefly-2.jpg" alt="Firefly Screenshot 2">
+            </a>
+        </div>
+    </section>
+
+    <section id="got">
+        <h2>Game of Thrones</h2>
+        
+        <p>Based on George R.R. Martin's A Song of Ice and Fire book series, Game of Thrones is a gritty high fantasy tv series that spanned eight seasons.</p>
+    
+        <h3>Why It’s My Favorite</h3>
+        <p>From the first episode, I was hooked. Fantasy was already my favourite genre, but to have such a high quality TV series with a brilliant cast, performances and location shooting was epic. Turned me onto the book series which also became a favourite. </p>
+    
+        <h3>Gallery</h3>
+        <div class="screenshot-gallery">
+            <a href="Images/got-1.jpg" target="_blank">
+                <img src="Images/got-1.jpg" alt="GOT Screenshot 1">
+            </a>
+            <a href="Images/got-2.jpg" target="_blank">
+                <img src="Images/got-2.jpg" alt="GOT Screenshot 2">
+            </a>
+        </div>
+    </section>
+    
+    <section id="lie">
+        <h2>Lie to Me</h2>
+        
+        <p>Lie to Me was a crime drama series from 2009 centered around Dr. Cal Lightman (Tim Roth) and his team of deception experts at The Lightman Group. Utilizing their profound understanding of applied psychology, they assist law enforcement agencies and clients by uncovering the truth behind facial expressions and body language.</p>
+    
+        <h3>Why It’s My Favorite</h3>
+        <p>Having always an interest in psychology and body language, I loved this show, where akin to Sherlock Holmes, Cal Lightman could tell you an entire story just based on 'micro expressions' in someone's face. Also, Tim Roth is fantastic.</p>
+    
+        <h3>Gallery</h3>
+        <div class="screenshot-gallery">
+            <a href="Images/lie-1.jpg" target="_blank">
+                <img src="Images/lie-1.jpg" alt="Lie to Me Screenshot 1">
+            </a>
+            <a href="Images/lie-2.jpg" target="_blank">
+                <img src="Images/lie-2.jpg" alt="Lie to Me Screenshot 2">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright ©2024 Knightvision</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentVisibleSection = null; // Keep track of the current visible section
+        
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.style.display = 'none'); // Hide all sections at the page load
+        
+            document.querySelectorAll('.media-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const media = this.getAttribute('data-media');
+        
+                    if (currentVisibleSection === media) {
+                        // Hide the currently displayed section
+                        document.getElementById(media).style.display = 'none';
+                        currentVisibleSection = null; // No section is currently visible
+                    } else {
+                        // Hide all sections first
+                        sections.forEach(section => section.style.display = 'none');
+        
+                        // Show the selected section
+                        const selectedSection = document.getElementById(media);
+                        if (selectedSection) {
+                            selectedSection.style.display = 'block'; // Show the selected section only
+                            currentVisibleSection = media; // Update the tracker to the new media
+        
+                            // Apply the new background for selected section
+                            document.body.className = ''; // Reset any previous background class
+                            document.body.classList.add('body-background-' + media);
+                        }
+                    }
+                });
+            });
+        });
+        </script>
+        
+</body>
+</html>
