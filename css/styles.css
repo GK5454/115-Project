@@ -154,7 +154,7 @@ footer {
 @media (max-width: 768px) {
     .body-background-witcher {
     background-image: url('../Images/W3_Back.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
