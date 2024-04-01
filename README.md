@@ -8,4 +8,6 @@ Also made some last minute updates to make the mobile version look great.
 
 Passed all verification & tests with no warnings and no errors
 
+Positive feedback from the mobile-friendly tests
+
 Decided after learning of the deadline extension to enhance the index page table's functionality to jump to an individual page when selected.
