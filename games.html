@@ -96,37 +96,49 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             let currentVisibleSection = null; // Keep track of the current visible section
-        
+    
+            const urlParams = new URLSearchParams(window.location.search);
+            const mediaParam = urlParams.get('media'); // Get the 'media' parameter from the URL
+    
             const sections = document.querySelectorAll('section');
             sections.forEach(section => section.style.display = 'none'); // Hide all sections at the page load
-        
+    
             document.querySelectorAll('.media-btn').forEach(button => {
                 button.addEventListener('click', function() {
                     const media = this.getAttribute('data-media');
-        
+    
                     if (currentVisibleSection === media) {
                         // Hide the currently displayed section
                         document.getElementById(media).style.display = 'none';
                         currentVisibleSection = null; // No section is currently visible
                     } else {
-                        // Hide all sections first
-                        sections.forEach(section => section.style.display = 'none');
-        
-                        // Show the selected section
-                        const selectedSection = document.getElementById(media);
-                        if (selectedSection) {
-                            selectedSection.style.display = 'block'; // Show the selected section only
-                            currentVisibleSection = media; // Update the tracker to the new media
-        
-                            // Apply the new background for selected section
-                            document.body.className = ''; // Reset any previous background class
-                            document.body.classList.add('body-background-' + media);
-                        }
+                        displaySection(media); // Show the selected section based on button click
                     }
                 });
             });
+    
+            if (mediaParam) {
+                displaySection(mediaParam); // Show the section based on URL parameter
+            }
+    
+            function displaySection(media) {
+                // Hide all sections first
+                sections.forEach(section => section.style.display = 'none');
+    
+                // Show the selected section
+                const selectedSection = document.getElementById(media);
+                if (selectedSection) {
+                    selectedSection.style.display = 'block'; // Show the selected section only
+                    currentVisibleSection = media; // Update the tracker to the new media
+    
+                    // Apply the new background for selected section
+                    document.body.className = ''; // Reset any previous background class
+                    document.body.classList.add('body-background-' + media);
+                }
+            }
         });
-        </script>
+    </script>
+    
         
 </body>
 </html>
