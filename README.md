@@ -7,3 +7,5 @@ so I modified the code to allow a second click on an already active favourite hi
 Also made some last minute updates to make the mobile version look great.
 
 Passed all verification & tests with no warnings and no errors
+
+Decided after learning of the deadline extension to enhance the index page table's functionality to jump to an individual page when selected.
